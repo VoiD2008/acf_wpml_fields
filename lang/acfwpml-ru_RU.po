@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: acfwpml\n"
-"POT-Creation-Date: 2014-09-01 20:56+0400\n"
-"PO-Revision-Date: 2014-09-01 20:56+0400\n"
+"POT-Creation-Date: 2014-09-01 23:16+0400\n"
+"PO-Revision-Date: 2014-09-01 23:16+0400\n"
 "Last-Translator: VoiD <serg.kt@gmail.com>\n"
 "Language-Team: VoiD2008 <void2008dev@gmail.com>\n"
 "Language: ru\n"
@@ -16,23 +16,23 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../index.php:25
+#: ../index.php:23
 msgid "No WPML Plugin installed/activated."
 msgstr "Не установлен/активирован WPML плагин"
 
-#: ../index.php:31
+#: ../index.php:29
 msgid "No Polylang Plugin installed/activated."
 msgstr "Не установлен/активирован Polylang плагин"
 
-#: ../index.php:37
+#: ../index.php:35
 msgid "No xili-language Plugin installed/activated."
 msgstr "Не установлен/активирован xili-language плагин"
 
-#: ../index.php:45
+#: ../index.php:43
 msgid "No ACF Plugin installed/activated."
 msgstr "Не установлен/активирован ACF плагин"
 
-#: ../index.php:100
+#: ../index.php:93
 msgid ""
 "<div class=\"error\">Plug-in <strong>ACF_WPML</strong> was "
 "<strong>deactivated</strong>"
@@ -40,14 +40,18 @@ msgstr ""
 "<div class=\"error\">Плагин <strong>ACF_WPML</strong> <strong>деактивирован</"
 "strong>"
 
-#: ../index.php:112
+#: ../index.php:106 ../index.php:129
 msgid "Language code"
 msgstr "Код языка"
 
-#: ../index.php:113
+#: ../index.php:107
 msgid "Language for the field"
 msgstr "Код языка для этого поля"
 
-#: ../index.php:123
+#: ../index.php:117 ../index.php:139
 msgid "all"
 msgstr "любой"
+
+#: ../index.php:130
+msgid "Language for the field group"
+msgstr "Код языка для группы полей"

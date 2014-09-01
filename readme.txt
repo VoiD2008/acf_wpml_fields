@@ -44,13 +44,10 @@ By default plugin uses get_locale() function. If you wish to override language, 
 
 == Upgrade Notice ==
 
-1.2.1 Added localization en/ru
-1.2.0 Added WPML plugin support
-1.1.0 Added xili-language plugin support
-1.0.1 Added Polylang plugin support
-
-
 == Changelog ==
+
+= 1.3.0 =
+* Added ACF Field Groups language option
 
 = 1.2.1 =
 * Added localization en/ru
