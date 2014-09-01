@@ -17,6 +17,7 @@ No screenshots.
 == Description ==
 
 This plugin allows to select language for fields to be shown.
+WPML,xili-language,Polylang plugins supported.
 
 == Installation ==
 
@@ -34,11 +35,15 @@ The plugin requires ACF (Advanced Custom Fields) plugin and Polylang plugin to b
 
 == Upgrade Notice ==
 
+1.3.0 Added WPML plugin support
 1.1.0 Added xili-language plugin support
 1.0.1 Added Polylang plugin support
 
 
 == Changelog ==
+
+= 1.2.0 = 
+* Added WPML plugin support
 
 = 1.1.0 = 
 * Added xili-language plugin support

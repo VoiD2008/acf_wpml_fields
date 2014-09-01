@@ -18,7 +18,7 @@ $acfwpml_lang_plugin;
 		$acfwpml_error = '';
 		$acfwpml_lang_plugin = '';
 
-		if (!function_exists('icl_t')){
+		if (!defined('ICL_SITEPRESS_VERSION')){
 			$acfwpml_error .= 'No WPML Plugin installed/activated.<br/>';
 		} else {
 			$acfwpml_lang_plugin = 'WPML';			
@@ -60,12 +60,30 @@ $acfwpml_lang_plugin;
 			case 'POLYLANG':
 				return pll_languages_list();
 				break;
+			case 'WPML':
+				foreach (icl_get_languages() as $key => $val)
+					$langs[] = $key;
+				return $langs;
+				break;
 			case 'XILI':
 				global $xili_language;
 				foreach ($xili_language->xili_settings['lang_features'] as $key => $val)
 					$langs[] = $key;
 				return $langs;
 		}
+	}
+
+	function acfwpml_get_post_language(){
+		global $acfwpml_lang_plugin,$post;
+		switch ($acfwpml_lang_plugin){
+			case 'POLYLANG':
+				return pll_get_post_language($post->ID);
+			case 'WPML':
+				return ICL_LANGUAGE_CODE;
+			case 'XILI':
+				global $post,$xili_language;
+				return $xili_language->get_post_language($post->ID);
+		}		
 	}
 
        function acfwpml_admin_notice() {
@@ -77,9 +95,7 @@ $acfwpml_lang_plugin;
 
 	function acfwpml_addlangselect($field){
 		global $post;
-		//var_dump(acfwpml_getlangs());
 		if ($field['class']=='label') {?>
-
 	</td>
 </tr>
 <tr class="field_option field_option_lang">
@@ -104,19 +120,11 @@ $acfwpml_lang_plugin;
 		return $field;
 	}
 
-	function acfwpml_get_post_language(){
-		global $acfwpml_lang_plugin,$post;
-		switch ($acfwpml_lang_plugin){
-			case 'POLYLANG':
-				return pll_get_post_language($post->ID);
-			case 'XILI':
-				global $post,$xili_language;
-				return $xili_language->get_post_language($post->ID);
-		}		
-	}
-
 
 	function acfwpml_acf_load_field($field){
+		global $post;
+		if ($post->post_type=='acf')
+			return $field;
 		$post_lang = acfwpml_get_post_language();
 		$langs =  acfwpml_getlangs();
 
@@ -135,6 +143,6 @@ $acfwpml_lang_plugin;
 	}
 
 
-add_action( 'plugins_loaded', 'acfwpml_activate' );
+add_action( 'plugins_loaded', 'acfwpml_activate',999 );
 
 
