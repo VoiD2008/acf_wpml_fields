@@ -31,6 +31,7 @@ The plugin requires ACF (Advanced Custom Fields) plugin and Polylang plugin to b
 
 1.0.1 Added Polylang plugin support
 
+
 == Changelog ==
 
 = 1.0.1 =
