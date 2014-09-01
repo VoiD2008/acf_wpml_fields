@@ -6,8 +6,13 @@ License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.0
 Tested up to: 3.3.2
+Stable tag: trunk
 
 Adding language option to ACF fields plugin.
+
+== Screenshots ==
+
+No screenshots.
 
 == Description ==
 
@@ -43,4 +48,3 @@ If you find this useful and you if you want to contribute, there are three ways:
 
    1. You can [write me](void2008dev@gmail.com https://github.com/VoiD2008/acf_wpml_fields) and submit your bug reports, suggestions and requests for features;
    2. Using the plugin is free, but if you want you can send me some money with PayPal [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBHZUEALQ2RAN)
-
