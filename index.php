@@ -18,20 +18,21 @@ $acfwpml_lang_plugin;
 		$acfwpml_error = '';
 		$acfwpml_lang_plugin = '';
 
+
 		if (!defined('ICL_SITEPRESS_VERSION')){
-			$acfwpml_error .= 'No WPML Plugin installed/activated.<br/>';
+			$acfwpml_error .=  __("No WPML Plugin installed/activated.",'acfwpml').'<br/>';
 		} else {
 			$acfwpml_lang_plugin = 'WPML';			
 		}
 
 		if (!defined('POLYLANG_VERSION')){
-			$acfwpml_error .= 'No Polylang Plugin installed/activated.<br/>';
+			$acfwpml_error .= __("No Polylang Plugin installed/activated.",'acfwpml').'<br/>';
 		} else {
 			$acfwpml_lang_plugin = 'POLYLANG';			
 		}
 
 		if (!defined('XILILANGUAGE_VER')){
-			$acfwpml_error .= 'No xili-language Plugin installed/activated.<br/>';
+			$acfwpml_error .= __("No xili-language Plugin installed/activated.",'acfwpml').'<br/>';
 		} else {
 			$acfwpml_lang_plugin = 'XILI';			
 		}
@@ -39,7 +40,7 @@ $acfwpml_lang_plugin;
 		if ($acfwpml_lang_plugin) $acfwpml_error = '';
 
 		if (!function_exists('acf_form')){
-			$acfwpml_error .= 'No ACF Plugin installed/activated.<br/>';
+			$acfwpml_error .= __("No ACF Plugin installed/activated.",'acfwpml').'<br/>';
 		}
 		
 		if ($acfwpml_error){
@@ -49,6 +50,7 @@ $acfwpml_lang_plugin;
 			acfwpml_register_actions();
 		}
 	}
+
 
  	function acfwpml_deactivate() {
               deactivate_plugins( plugin_basename( __FILE__ ) );
@@ -88,7 +90,7 @@ $acfwpml_lang_plugin;
 
        function acfwpml_admin_notice() {
 		global $acfwpml_error;
-       	echo '<div class="error">Plug-in <strong>ACF_WPML</strong> was <strong>deactivated</strong>.<br/>'.$acfwpml_error.'</div>';
+       	echo __('<div class="error">Plug-in <strong>ACF_WPML</strong> was <strong>deactivated</strong>','acfwpml').'<br/>'.$acfwpml_error.'</div>';
 		if ( isset( $_GET['activate'] ) )
 		unset( $_GET['activate'] );
        }
@@ -110,8 +112,8 @@ $acfwpml_lang_plugin;
 			$select = get_post_meta($post->ID,$fieldname[1]);
 			do_action('acf/create_field', array(
 				'type'	=>	'select',
-				'name'	=>	str_replace('label','language',$field['name']),//$field['name'].'[lang]',
-				'choices'	=>	array_merge((array)'all',$langs),
+				'name'	=>	str_replace('label','language',$field['name']),
+				'choices'	=>	array_merge((array)__('all','acfwpml'),$langs),
 				'value'	=>	$select[0]['language'],
 				'class' => 'language',
 			));
@@ -142,7 +144,17 @@ $acfwpml_lang_plugin;
 		add_filter('acf/load_field', 'acfwpml_acf_load_field',10,1);
 	}
 
+	function acfwpml_load_langs_filter( $lang ) {
+		return $lang;
+	}
 
+	function acfwpml_preload_langs(){
+		add_filter('acfwpml_load_langs', 'acfwpml_load_langs_filter');
+   		$lang = apply_filters( 'acfwpml_load_langs', get_locale() );
+		load_textdomain('acfwpml', plugin_dir_path( __FILE__ ) . 'lang/acfwpml-' . $lang . '.mo');
+	}
+
+add_action( 'init','acfwpml_preload_langs');
 add_action( 'plugins_loaded', 'acfwpml_activate',999 );
 
 

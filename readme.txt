@@ -33,14 +33,27 @@ Use WordPress' Add New Plugin feature, searching "Language option for ACF4+ Fiel
 
 The plugin requires ACF (Advanced Custom Fields) plugin and Polylang plugin to be installed and activated.
 
+= How to change language of plugin =
+
+By default plugin uses get_locale() function. If you wish to override language, just put this code to your functions.php
+
+# add_filter('acfwpml_load_langs','acfwpml_override_lang');
+# function acfwpml_override_lang(){
+#	return 'en_US';
+# }
+
 == Upgrade Notice ==
 
-1.3.0 Added WPML plugin support
+1.2.1 Added localization en/ru
+1.2.0 Added WPML plugin support
 1.1.0 Added xili-language plugin support
 1.0.1 Added Polylang plugin support
 
 
 == Changelog ==
+
+= 1.2.1 =
+* Added localization en/ru
 
 = 1.2.0 = 
 * Added WPML plugin support
