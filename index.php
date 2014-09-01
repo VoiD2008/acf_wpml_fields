@@ -6,6 +6,7 @@
  Author: VoiD
  Author URI: http://spbdesigner.ru
  Text Domain: acfwpml
+ Plugin URI: https://github.com/VoiD2008/acf_wpml_fields
  */
 
 defined('ABSPATH') or die("No kidding please!");
@@ -82,7 +83,7 @@ $acfwpml_lang_plugin;
 			$select = get_post_meta($post->ID,$fieldname[1]);
 			do_action('acf/create_field', array(
 				'type'	=>	'select',
-				'name'	=>	str_replace('label','language',$field['name']),//$field['name'].'[lang]',
+				'name'	=>	str_replace('label','language',$field['name']),
 				'choices'	=>	array_merge((array)'all',$langs),
 				'value'	=>	$select[0]['language'],
 				'class' => 'language',

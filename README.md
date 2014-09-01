@@ -41,6 +41,6 @@ The plugin requires ACF (Advanced Custom Fields) plugin and Polylang plugin to b
 
 If you find this useful and you if you want to contribute, there are three ways:
 
-   1. You can [write me](void2008dev@gmail.com) and submit your bug reports, suggestions and requests for features;
+   1. You can [write me](void2008dev@gmail.com https://github.com/VoiD2008/acf_wpml_fields) and submit your bug reports, suggestions and requests for features;
    2. Using the plugin is free, but if you want you can send me some money with PayPal [here](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WBHZUEALQ2RAN)
 
