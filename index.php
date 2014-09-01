@@ -2,11 +2,10 @@
 /**
  * Plugin Name: Language option for ACF4+ Fields 
  Description: Adding language option for ACF fields. Yet working with Polylang plugin only.
- Version: 1.0.1
+ Version: 1.1.0
  Author: VoiD
  Author URI: http://spbdesigner.ru
  Text Domain: acfwpml
- Plugin URI: https://github.com/VoiD2008/acf_wpml_fields
  */
 
 defined('ABSPATH') or die("No kidding please!");
@@ -29,6 +28,12 @@ $acfwpml_lang_plugin;
 			$acfwpml_error .= 'No Polylang Plugin installed/activated.<br/>';
 		} else {
 			$acfwpml_lang_plugin = 'POLYLANG';			
+		}
+
+		if (!defined('XILILANGUAGE_VER')){
+			$acfwpml_error .= 'No xili-language Plugin installed/activated.<br/>';
+		} else {
+			$acfwpml_lang_plugin = 'XILI';			
 		}
 
 		if ($acfwpml_lang_plugin) $acfwpml_error = '';
@@ -55,6 +60,11 @@ $acfwpml_lang_plugin;
 			case 'POLYLANG':
 				return pll_languages_list();
 				break;
+			case 'XILI':
+				global $xili_language;
+				foreach ($xili_language->xili_settings['lang_features'] as $key => $val)
+					$langs[] = $key;
+				return $langs;
 		}
 	}
 
@@ -67,6 +77,7 @@ $acfwpml_lang_plugin;
 
 	function acfwpml_addlangselect($field){
 		global $post;
+		//var_dump(acfwpml_getlangs());
 		if ($field['class']=='label') {?>
 
 	</td>
@@ -83,7 +94,7 @@ $acfwpml_lang_plugin;
 			$select = get_post_meta($post->ID,$fieldname[1]);
 			do_action('acf/create_field', array(
 				'type'	=>	'select',
-				'name'	=>	str_replace('label','language',$field['name']),
+				'name'	=>	str_replace('label','language',$field['name']),//$field['name'].'[lang]',
 				'choices'	=>	array_merge((array)'all',$langs),
 				'value'	=>	$select[0]['language'],
 				'class' => 'language',
@@ -98,7 +109,9 @@ $acfwpml_lang_plugin;
 		switch ($acfwpml_lang_plugin){
 			case 'POLYLANG':
 				return pll_get_post_language($post->ID);
-				break;
+			case 'XILI':
+				global $post,$xili_language;
+				return $xili_language->get_post_language($post->ID);
 		}		
 	}
 
@@ -106,6 +119,7 @@ $acfwpml_lang_plugin;
 	function acfwpml_acf_load_field($field){
 		$post_lang = acfwpml_get_post_language();
 		$langs =  acfwpml_getlangs();
+
 		$lang_index = array_search($post_lang,array_merge((array)'',$langs));
 		if ($field['language'])
 			if ($field['language']>0&&$lang_index>0)

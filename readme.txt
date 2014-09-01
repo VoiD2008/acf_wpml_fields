@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 License: GPLv2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Requires at least: 3.0
-Tested up to: 3.3.2
+Tested up to: 3.9.2
 Stable tag: trunk
 
 Adding language option to ACF fields plugin.
@@ -34,10 +34,14 @@ The plugin requires ACF (Advanced Custom Fields) plugin and Polylang plugin to b
 
 == Upgrade Notice ==
 
+1.1.0 Added xili-language plugin support
 1.0.1 Added Polylang plugin support
 
 
 == Changelog ==
+
+= 1.1.0 = 
+* Added xili-language plugin support
 
 = 1.0.1 =
 * Added Polylang plugin support
