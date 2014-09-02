@@ -1,0 +1,52 @@
+# Copyright (C) 2014 
+# This file is distributed under the same license as the  package.
+msgid ""
+msgstr ""
+"Project-Id-Version:  \n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/language-option-for-acf4-"
+"fields\n"
+"POT-Creation-Date: 2014-09-02 19:41:20+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: index.php:23
+msgid "No WPML Plugin installed/activated."
+msgstr ""
+
+#: index.php:29
+msgid "No Polylang Plugin installed/activated."
+msgstr ""
+
+#: index.php:35
+msgid "No xili-language Plugin installed/activated."
+msgstr ""
+
+#: index.php:43
+msgid "No ACF Plugin installed/activated."
+msgstr ""
+
+#: index.php:93
+msgid ""
+"<div class=\"error\">Plug-in <strong>ACF_WPML</strong> was "
+"<strong>deactivated</strong>"
+msgstr ""
+
+#: index.php:106 index.php:129
+msgid "Language code"
+msgstr ""
+
+#: index.php:107
+msgid "Language for the field"
+msgstr ""
+
+#: index.php:117 index.php:139
+msgid "all"
+msgstr ""
+
+#: index.php:130
+msgid "Language for the field group"
+msgstr ""
