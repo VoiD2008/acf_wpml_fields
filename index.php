@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Language option for ACF4+ Fields 
  Description: Adding language option for ACF fields. Yet working with Polylang plugin only.
- Version: 1.1.0
+ Version: 1.3.0
  Author: VoiD
  Author URI: http://spbdesigner.ru
  Text Domain: acfwpml
